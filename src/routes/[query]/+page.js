@@ -7,10 +7,10 @@ export async function load({ params, fetch }) {
     }
   };
 
-  return fetch(`https://weatherapi-com.p.rapidapi.com/current.json?q=${params.query}`, options)
+  return fetch(`https://weatherapi-com.p.rapidapi.com/forecast.json?q=${params.query}&days=5&lang=es`, options)
     .then(response => response.json())
     .then(response => {
-      const { current, location } = response
+      const { current, location, forecast } = response
       const {
         condition, 
         temp_c,
@@ -23,6 +23,7 @@ export async function load({ params, fetch }) {
       } = current
       const { country, localtime, name } = location
       const { code, text, icon } = condition
+      const { forecastday } = forecast
 
       return {
         temp: temp_c,
@@ -37,7 +38,8 @@ export async function load({ params, fetch }) {
         name,
         conditionCode: code,
         condition: text,
-        icon
+        icon,
+        forecastday
       }
     })
 }

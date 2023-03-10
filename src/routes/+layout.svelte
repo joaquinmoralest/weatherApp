@@ -17,23 +17,42 @@
     <input bind:value={search} type="text" placeholder="Ej: Santiago">
     <button>Buscar</button>
   </form>
-</div>
 
-<slot></slot>
+  <slot></slot>
+</div>
 
 <style>
   :global(body) {
+    min-height: 100vh;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: 'Ubuntu mono';
     font-size: 16px;
+    background-image: url('/images/city.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 
   .container {
-    width: 100%;
-    max-width: 800px;
-    margin: 20px auto;
+    width: 80%;
+    max-width: 1200px;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, .5);
+    backdrop-filter: blur(5px);
+    border-radius: 16px;
+  }
+
+  h1 {
+    font-size: 3.5rem;
+    margin-top: 0;
   }
 
   input {
